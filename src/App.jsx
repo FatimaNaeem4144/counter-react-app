@@ -3,20 +3,33 @@ import './App.css'
 
  function App() {
   const [count, setCount] = useState(0)
-
+  const resetButton = () => {
+      setCount(0)
+  }
+  const increaseButton = () => {
+      setCount(count+1)
+  }
+  const decreaseButton = () => {
+    if(count === 0){
+      setCount(0)
+    }
+    else{
+      setCount(count-1);
+    }
+  }
   return (
     <>
     <div className="container">
     <h1>COUNTER APP</h1>
     <h2>Counter Value {count}</h2>
       <div className="card">
-        <button className='green' onClick={() => setCount((count) => count + 1)}>
+        <button className='green' onClick={increaseButton}>
           +
         </button>
-        <button className='reset' onClick={() => setCount((count) => 0)}>
+        <button className='reset' onClick={resetButton}>
           RESET
         </button>
-        <button className='red' onClick={() => setCount((count) => count - 1)}>
+        <button className='red' onClick={decreaseButton}>
         -
         </button>
       </div>
